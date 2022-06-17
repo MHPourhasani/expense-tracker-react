@@ -13,12 +13,18 @@ const HomePage = () => {
 		setTransActions([...transActions, transActionData]);
 	};
 
+	const deleteTransActionHandler = (id) => {
+		const filteredTransActions = transActions.filter((transAction) => transAction.id !== id);
+		setTransActions(filteredTransActions);
+	};
+
 	return (
 		<Layout>
 			<OverViewComponent income={income} expense={expense} />
 			<TransActionsList
 				transActions={transActions}
 				addTransActionHandler={addTransActionHandler}
+				deleteTransActionHandler={deleteTransActionHandler}
 			/>
 		</Layout>
 	);

@@ -3,8 +3,9 @@ import TransActionsForm from './TransActionsForm';
 import styles from './TransActionsList.module.css';
 
 import { BsTrash } from 'react-icons/bs';
+import TransActionTemplate from './TransActionTemplate';
 
-const TransActionsList = ({ addTransActionHandler, transActions }) => {
+const TransActionsList = ({ addTransActionHandler, transActions, deleteTransActionHandler }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -23,21 +24,29 @@ const TransActionsList = ({ addTransActionHandler, transActions }) => {
 			<section>
 				{transActions.map((transAction) => {
 					return (
-						<section
-							className={`${styles.transActionList} ${
-								transAction.type === 'income'
-									? styles.income_transAction
-									: styles.expense_transAction
-							}`}>
-							<p className={styles.transAction_title}>{transAction.title}</p>
+						<TransActionTemplate
+							key={transAction.id}
+							transAction={transAction}
+							deleteTransActionHandler={deleteTransActionHandler}
+						/>
+						// <section
+						// 	key={transAction.id}
+						// 	className={`${styles.transActionList} ${
+						// 		transAction.type === 'income'
+						// 			? styles.income_transAction
+						// 			: styles.expense_transAction
+						// 	}`}>
+						// 	<p className={styles.transAction_title}>{transAction.title}</p>
 
-							<section className={styles.amount_btns_container}>
-								<p className={styles.transAction_title}>$ {transAction.amount}</p>
-								<button className={styles.trash_btn}>
-									<BsTrash />
-								</button>
-							</section>
-						</section>
+						// 	<section className={styles.amount_btns_container}>
+						// 		<p className={styles.transAction_title}>$ {transAction.amount}</p>
+						// 		<button
+						// 			onClick={() => deleteTransActionHandler(transAction.id)}
+						// 			className={styles.trash_btn}>
+						// 			<BsTrash />
+						// 		</button>
+						// 	</section>
+						// </section>
 					);
 				})}
 			</section>
