@@ -11,7 +11,7 @@ const TransActionsForm = ({ addTransActionHandler }) => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		addTransActionHandler(formValue);
-		setFormValue(formValue)
+		setFormValue(formValue);
 	};
 
 	return (
@@ -67,7 +67,9 @@ const TransActionsForm = ({ addTransActionHandler }) => {
 					</div>
 				</section>
 
-				<button className={styles.add_btn}>Add TransAction</button>
+				<button type='submit' className={styles.add_btn}>
+					Add TransAction
+				</button>
 			</form>
 		</section>
 	);
