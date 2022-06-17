@@ -1,12 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TransActionsForm from './TransActionsForm';
 import styles from './TransActionsList.module.css';
 
-import { BsTrash } from 'react-icons/bs';
 import TransActionTemplate from './TransActionTemplate';
 
-const TransActionsList = ({ addTransActionHandler, transActions, deleteTransActionHandler }) => {
+const TransActionsList = ({ addTransActionHandler, transActions,deleteTransActionHandler  }) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [searchValue, setSearchValue] = useState('');
+	const [filterTransActions, setFilterTransActions] = useState(transActions);
+
+	const filteredSearchTransActions = (searchItem) => {
+		if (!searchItem) {
+			setFilterTransActions(transActions);
+			return;
+		}
+
+		const filtered = transActions.filter((t) =>
+			t.title.toLowerCase().includes(searchItem.toLowerCase())
+		);
+
+		setFilterTransActions(filtered);
+	};
+
+	const changeHandler = (e) => {
+		setSearchValue(e.target.value);
+		filteredSearchTransActions(e.target.value);
+	};
+
+	useEffect(() => {
+		filteredSearchTransActions(searchValue);
+	}, [transActions]);
 
 	return (
 		<section className={styles.transActionsList_container}>
@@ -21,32 +44,22 @@ const TransActionsList = ({ addTransActionHandler, transActions, deleteTransActi
 
 			{isOpen ? <TransActionsForm addTransActionHandler={addTransActionHandler} /> : ''}
 
+			<input
+				type='text'
+				placeholder='Search your transActions ...'
+				value={searchValue}
+				onChange={changeHandler}
+				className={styles.searchInput}
+			/>
+
 			<section>
-				{transActions.map((transAction) => {
+				{filterTransActions.map((transAction) => {
 					return (
 						<TransActionTemplate
 							key={transAction.id}
 							transAction={transAction}
 							deleteTransActionHandler={deleteTransActionHandler}
 						/>
-						// <section
-						// 	key={transAction.id}
-						// 	className={`${styles.transActionList} ${
-						// 		transAction.type === 'income'
-						// 			? styles.income_transAction
-						// 			: styles.expense_transAction
-						// 	}`}>
-						// 	<p className={styles.transAction_title}>{transAction.title}</p>
-
-						// 	<section className={styles.amount_btns_container}>
-						// 		<p className={styles.transAction_title}>$ {transAction.amount}</p>
-						// 		<button
-						// 			onClick={() => deleteTransActionHandler(transAction.id)}
-						// 			className={styles.trash_btn}>
-						// 			<BsTrash />
-						// 		</button>
-						// 	</section>
-						// </section>
 					);
 				})}
 			</section>

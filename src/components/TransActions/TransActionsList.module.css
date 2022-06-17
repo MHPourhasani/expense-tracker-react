@@ -1,4 +1,7 @@
 .transActionsList_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	padding: 0 10px;
 }
 
@@ -29,6 +32,17 @@
 
 .cancelBtn {
 	color: #dc2626;
+}
+
+.searchInput {
+	background-color: #1e293b;
+	height: 2.5rem;
+	padding: 0 10px;
+	margin: 1rem 0;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	filter: drop-shadow(5px 1px 5px #121722);
 }
 
 .transActionList {
@@ -73,5 +87,5 @@
 }
 
 .trash_btn:hover {
-	color: #B91C1C;
+	color: #b91c1c;
 }
