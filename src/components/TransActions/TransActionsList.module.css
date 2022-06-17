@@ -1,0 +1,77 @@
+.transActionsList_container {
+	padding: 0 10px;
+}
+
+.title_addBtn_container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title_addBtn_container span {
+	color: #fff;
+	margin: 0.5rem 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.btn {
+	background-color: #1e293b;
+	font-size: 0.9rem;
+	font-weight: 600;
+	width: 3.5rem;
+	height: 2rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #fff;
+}
+
+.cancelBtn {
+	color: #dc2626;
+}
+
+.transActionList {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #1e293b;
+	border-radius: 5px;
+	margin: 7px 0;
+	padding: 1rem 0;
+}
+
+.transAction_title {
+	color: #fff;
+	margin: 0 5px;
+}
+
+.income_transAction {
+	border-left: 3px solid #16a34a;
+}
+
+.expense_transAction {
+	border-left: 3px solid #dc2626;
+}
+
+.amount_btns_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 10px;
+}
+
+.trash_btn {
+	background-color: transparent;
+	color: #dc2626;
+	border: none;
+	font-size: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.trash_btn:hover {
+	color: #B91C1C;
+}
