@@ -4,11 +4,15 @@ import myPhoto from '../../assets/images/myPhoto.jpg';
 const Header = () => {
 	return (
 		<header>
-			<div className='header-title'>Expence Tracker</div>
+			<h2 className='header-title'>Expence Tracker</h2>
 
-			<div className='image-container'>
+			<a
+				href='https://github.com/MHPourhasani'
+				target='_blank'
+				rel='noreferrer'
+				className='image-container'>
 				<img src={myPhoto} alt='my photo' aria-hidden />
-			</div>
+			</a>
 		</header>
 	);
 };
