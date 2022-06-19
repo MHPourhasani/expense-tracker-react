@@ -11,7 +11,7 @@ const TransActionsForm = ({ addTransActionHandler }) => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		addTransActionHandler(formValue);
-		setFormValue(formValue);
+		setFormValue({ type: 'expense', title: '', amount: 0, desc: '' });
 	};
 
 	return (
