@@ -28,6 +28,9 @@
 	border-radius: 5px;
 	cursor: pointer;
 	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .cancelBtn {
