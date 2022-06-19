@@ -7,6 +7,16 @@ const HomePage = () => {
 	const [income, setIncome] = useState(0);
 	const [expense, setExpense] = useState(0);
 	const [transActions, setTransActions] = useState([]);
+	// const [filterTransActions, setFilterTransActions] = useState(transActions);
+
+	useEffect(() => {
+		const saveData = JSON.parse(localStorage.getItem('TransActions'));
+		if (saveData) setTransActions(saveData);
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('TransActions', JSON.stringify(transActions));
+	}, [transActions]);
 
 	useEffect(() => {
 		let inc = 0;
@@ -18,9 +28,22 @@ const HomePage = () => {
 				: (inc += parseFloat(transAction.amount))
 		);
 
-		setExpense(exp)
-		setIncome(inc)
+		setExpense(exp);
+		setIncome(inc);
 	}, [transActions]);
+
+	// const filteredSearchTransActions = (searchItem) => {
+	// 	if (!searchItem) {
+	// 		setFilterTransActions(transActions);
+	// 		return;
+	// 	}
+
+	// 	const filtered = transActions.filter((t) =>
+	// 		t.title.toLowerCase().includes(searchItem.toLowerCase())
+	// 	);
+
+	// 	setFilterTransActions(filtered);
+	// };
 
 	const addTransActionHandler = (formValue) => {
 		const transActionData = { ...formValue, id: Math.floor(Math.random() * 1000) };
@@ -37,8 +60,11 @@ const HomePage = () => {
 			<OverViewComponent income={income} expense={expense} />
 			<TransActionsList
 				transActions={transActions}
+				// filterTransActions={filterTransActions}
+				setTransActions={setTransActions}
 				addTransActionHandler={addTransActionHandler}
 				deleteTransActionHandler={deleteTransActionHandler}
+				// filteredSearchTransActions={filteredSearchTransActions}
 			/>
 		</Layout>
 	);

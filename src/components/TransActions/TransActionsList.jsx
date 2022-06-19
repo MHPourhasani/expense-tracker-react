@@ -1,15 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import TransActionsForm from './TransActionsForm';
 import styles from './TransActionsList.module.css';
 
 import TransActionTemplate from './TransActionTemplate';
 
-const TransActionsList = ({ addTransActionHandler, transActions, deleteTransActionHandler }) => {
+const TransActionsList = ({ addTransActionHandler, setTransActions,transActions,deleteTransActionHandler }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [searchValue, setSearchValue] = useState('');
 	const [filterTransActions, setFilterTransActions] = useState(transActions);
 
-	const filteredSearchTransActions = (searchItem) => {
+	// useEffect(() => {
+	// 	const saveData = JSON.parse(localStorage.getItem('TransActions'));
+	// 	if (saveData) setTransActions(saveData);
+	// }, []);
+
+	// useEffect(() => {
+	// 	localStorage.setItem('TransActions', JSON.stringify(filterTransActions));
+	// }, [filterTransActions, transActions]);
+
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const filteredSearchTransActions = useCallback((searchItem) => {
 		if (!searchItem) {
 			setFilterTransActions(transActions);
 			return;
@@ -20,7 +30,7 @@ const TransActionsList = ({ addTransActionHandler, transActions, deleteTransActi
 		);
 
 		setFilterTransActions(filtered);
-	};
+	});
 
 	const changeHandler = (e) => {
 		setSearchValue(e.target.value);
@@ -29,7 +39,7 @@ const TransActionsList = ({ addTransActionHandler, transActions, deleteTransActi
 
 	useEffect(() => {
 		filteredSearchTransActions(searchValue);
-	}, [transActions]);
+	}, [filteredSearchTransActions, searchValue, transActions]);
 
 	if (!transActions.length) {
 		return (
@@ -72,17 +82,19 @@ const TransActionsList = ({ addTransActionHandler, transActions, deleteTransActi
 			/>
 
 			<section>
-				{filterTransActions.length
-					? filterTransActions.map((transAction) => {
-							return (
-								<TransActionTemplate
-									key={transAction.id}
-									transAction={transAction}
-									deleteTransActionHandler={deleteTransActionHandler}
-								/>
-							);
-					  })
-					: <p className={styles.notMatchs_item}>no item matchs !</p>}
+				{filterTransActions.length ? (
+					filterTransActions.map((transAction) => {
+						return (
+							<TransActionTemplate
+								key={transAction.id}
+								transAction={transAction}
+								deleteTransActionHandler={deleteTransActionHandler}
+							/>
+						);
+					})
+				) : (
+					<p className={styles.notMatchs_item}>no item matchs !</p>
+				)}
 			</section>
 		</section>
 	);
