@@ -22,8 +22,8 @@
 	background-color: #1e293b;
 	font-size: 0.9rem;
 	font-weight: 600;
-	width: 3.5rem;
-	height: 2rem;
+	width: 4rem;
+	height: 2.4rem;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
@@ -36,13 +36,25 @@
 
 .searchInput {
 	background-color: #1e293b;
-	height: 2.5rem;
+	height: 3rem;
 	padding: 0 10px;
 	margin: 1rem 0;
 	border: none;
 	border-radius: 5px;
 	color: #fff;
 	filter: drop-shadow(5px 1px 5px #121722);
+	font-size: 0.83rem;
+}
+
+.empty_transActionsList_container {
+	margin: 10px;
+}
+
+.empty_transActionsList_container p {
+	background: #1e293b;
+	padding: 10px;
+	border-radius: 5px;
+	color: #fff;
 }
 
 .transActionList {
@@ -88,4 +100,11 @@
 
 .trash_btn:hover {
 	color: #b91c1c;
+}
+
+.notMatchs_item {
+	background-color: #1e293b;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
 }

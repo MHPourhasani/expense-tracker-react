@@ -4,7 +4,7 @@ import styles from './TransActionsList.module.css';
 
 import TransActionTemplate from './TransActionTemplate';
 
-const TransActionsList = ({ addTransActionHandler, transActions,deleteTransActionHandler  }) => {
+const TransActionsList = ({ addTransActionHandler, transActions, deleteTransActionHandler }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [searchValue, setSearchValue] = useState('');
 	const [filterTransActions, setFilterTransActions] = useState(transActions);
@@ -31,6 +31,25 @@ const TransActionsList = ({ addTransActionHandler, transActions,deleteTransActio
 		filteredSearchTransActions(searchValue);
 	}, [transActions]);
 
+	if (!transActions.length) {
+		return (
+			<section className={styles.empty_transActionsList_container}>
+				<section className={styles.title_addBtn_container}>
+					<span>Expense List</span>
+					<button
+						onClick={() => setIsOpen((prevState) => !prevState)}
+						className={`${styles.btn} ${isOpen ? styles.cancelBtn : ''}`}>
+						{isOpen ? 'Cancel' : 'Add'}
+					</button>
+				</section>
+
+				{isOpen ? <TransActionsForm addTransActionHandler={addTransActionHandler} /> : ''}
+
+				<p>Add Some TransActions...</p>
+			</section>
+		);
+	}
+
 	return (
 		<section className={styles.transActionsList_container}>
 			<section className={styles.title_addBtn_container}>
@@ -53,15 +72,17 @@ const TransActionsList = ({ addTransActionHandler, transActions,deleteTransActio
 			/>
 
 			<section>
-				{filterTransActions.map((transAction) => {
-					return (
-						<TransActionTemplate
-							key={transAction.id}
-							transAction={transAction}
-							deleteTransActionHandler={deleteTransActionHandler}
-						/>
-					);
-				})}
+				{filterTransActions.length
+					? filterTransActions.map((transAction) => {
+							return (
+								<TransActionTemplate
+									key={transAction.id}
+									transAction={transAction}
+									deleteTransActionHandler={deleteTransActionHandler}
+								/>
+							);
+					  })
+					: <p className={styles.notMatchs_item}>no item matchs !</p>}
 			</section>
 		</section>
 	);
