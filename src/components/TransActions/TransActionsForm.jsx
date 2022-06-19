@@ -26,6 +26,7 @@ const TransActionsForm = ({ addTransActionHandler }) => {
 						value={formValue.title}
 						placeholder='Title ...'
 						onChange={changeHandler}
+						required
 					/>
 					<input
 						type='number'
