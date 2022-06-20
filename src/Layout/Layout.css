@@ -1,0 +1,13 @@
+.layout {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
+}
+
+/*  (min-width:640px) */
+@media (min-width: 640px) {
+	.layout {
+		align-items: center;
+	}
+}
