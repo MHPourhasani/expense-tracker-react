@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import OverViewComponent from '../components/OverViewComponent/OverViewComponent';
 import TransActionsList from '../components/TransActions/TransActionsList';
 import Layout from './../Layout/Layout';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
 	const [income, setIncome] = useState(0);
@@ -57,15 +58,17 @@ const HomePage = () => {
 
 	return (
 		<Layout>
-			<OverViewComponent income={income} expense={expense} />
-			<TransActionsList
-				transActions={transActions}
-				// filterTransActions={filterTransActions}
-				setTransActions={setTransActions}
-				addTransActionHandler={addTransActionHandler}
-				deleteTransActionHandler={deleteTransActionHandler}
-				// filteredSearchTransActions={filteredSearchTransActions}
-			/>
+			<section className={styles.homePage}>
+				<OverViewComponent income={income} expense={expense} />
+				<TransActionsList
+					transActions={transActions}
+					// filterTransActions={filterTransActions}
+					setTransActions={setTransActions}
+					addTransActionHandler={addTransActionHandler}
+					deleteTransActionHandler={deleteTransActionHandler}
+					// filteredSearchTransActions={filteredSearchTransActions}
+				/>
+			</section>
 		</Layout>
 	);
 };

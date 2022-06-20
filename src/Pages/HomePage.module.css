@@ -1,0 +1,20 @@
+.homePage {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/*  (min-width: 640px) and (max-width: 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+	.homePage {
+		align-items: center;
+	}
+}
+
+/*  (min-width: 768px) */
+@media (min-width: 768px) {
+	.homePage {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+}
