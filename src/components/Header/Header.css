@@ -7,7 +7,7 @@ header {
 }
 
 .header-title {
-    margin: 0;
+	margin: 0;
 }
 
 .image-container {
@@ -20,4 +20,56 @@ header {
 	height: 100%;
 	border-radius: 50%;
 	aspect-ratio: 1 / 1;
+}
+
+/*  ------- media query to responsive elements in Header component ------- */
+/*  (min-width:640px) and (max-width: 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+	header {
+		width: 65vw;
+	}
+
+	.image-container {
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+/*  (min-width:768px) and (max-width: 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+	header {
+		width: 88vw;
+		margin: 0.8rem 0;
+	}
+
+	.image-container {
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+/*  (min-width:1024px) and (max-width: 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+	header {
+		width: 68vw;
+		margin: 0.8rem 0;
+	}
+
+	.image-container {
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+/*  (min-width:1280px) */
+@media (min-width: 1280px) {
+	header {
+		width: 58vw;
+		margin: 0.8rem 0;
+	}
+
+	.image-container {
+		width: 3rem;
+		height: 3rem;
+	}
 }
