@@ -1,4 +1,4 @@
-.income-expense-container {
+.income-balance-expense-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -40,12 +40,75 @@ h4 {
 	margin: 5px 0;
 }
 
-.balance-addBtn-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+/*  ------- media query to responsive elements in OverViewComponent ------- */
+/*  (min-width:640px) and (max-width: 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+	.income-balance-expense-container {
+		width: 65vw;
+	}
+
+	.income-container,
+	.expense-container,
+	.balance-container {
+		margin: 1rem 5px;
+		padding: 15px 10px;
+		font-size: 1.15rem;
+	}
 }
 
-.add-btn {
-	font-size: 0.9rem;
+/*  (min-width:768px) and (max-width: 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.income-balance-expense-container {
+		flex-grow: 1;
+		flex-direction: column;
+		margin-right: 2.5rem;
+	}
+
+	.income-container,
+	.expense-container,
+	.balance-container {
+		width: 8rem;
+		height: auto;
+		margin: 1rem 0;
+		padding: 15px;
+		font-size: 1.1rem;
+	}
+}
+
+/*  (min-width:1024px) and (max-width: 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+	.income-balance-expense-container {
+		flex-grow: 1;
+		flex-direction: column;
+		margin-right: 2.5rem;
+	}
+
+	.income-container,
+	.expense-container,
+	.balance-container {
+		width: 10rem;
+		height: auto;
+		margin: 0.5rem 0;
+		padding: 20px 15px;
+		font-size: 1.1rem;
+	}
+}
+
+/*  (min-width:1280px) */
+@media (min-width: 1280px) {
+	.income-balance-expense-container {
+		flex-grow: 1;
+		flex-direction: column;
+		margin-right: 2.5rem;
+	}
+
+	.income-container,
+	.expense-container,
+	.balance-container {
+		width: 10rem;
+		height: auto;
+		margin: 0.5rem 0;
+		padding: 20px 15px;
+		font-size: 1.1rem;
+	}
 }
