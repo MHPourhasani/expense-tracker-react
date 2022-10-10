@@ -1,0 +1,172 @@
+.transActionsList_container {
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1.5rem 0;
+}
+
+.title_addBtn_container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title_addBtn_container span {
+	color: #fff;
+	margin: 0.5rem 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.btn {
+	background-color: #1e293b;
+	font-size: 0.9rem;
+	font-weight: 500;
+	width: 4rem;
+	height: 2.5rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cancelBtn {
+	color: #dc2626;
+}
+
+.searchInput {
+	background-color: #1e293b;
+	padding: 14px 10px;
+	margin: 1rem 0;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	outline: none;
+	box-shadow: #151f2f 0px 2px 8px;
+}
+
+.searchInput:focus {
+	background-color: #182232;
+}
+
+.empty_transActionsList_container {
+	width: 95%;
+	padding: 1.5rem 10px;
+}
+
+.empty_transActionsList_container p {
+	background: #1e293b;
+	padding: 12px;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.notMatchs_item {
+	background-color: #1e293b;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+/*  ------- media query to responsive elements in TransActionList and TransActionTemplate components ------- */
+/*  min-width: 640px and max-width: 767px */
+@media (min-width: 640px) and (max-width: 767px) {
+	.transActionsList_container,
+	.empty_transActionsList_container {
+		width: 75vw;
+	}
+
+	.title_addBtn_container span {
+		font-size: 1.25rem;
+	}
+
+	.btn {
+		width: 4.5rem;
+		height: 2.6rem;
+		font-size: 0.9rem;
+	}
+
+	.empty_transActionsList_container p,
+	.notMatchs_item,
+	.searchInput {
+		padding: 15px;
+	}
+}
+
+/*  min-width: 768px and max-width: 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.transActionsList_container,
+	.empty_transActionsList_container {
+		width: 60vw;
+		padding: 0;
+	}
+
+	.title_addBtn_container span {
+		font-size: 1.3rem;
+	}
+
+	.btn {
+		width: 4.5rem;
+		height: 2.6rem;
+		font-size: 0.95rem;
+	}
+
+	.empty_transActionsList_container p,
+	.notMatchs_item,
+	.searchInput {
+		padding: 15px;
+	}
+}
+
+/*  min-width: 1024px and max-width: 1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+	.transActionsList_container,
+	.empty_transActionsList_container {
+		width: 50vw;
+		padding: 0;
+	}
+
+	.title_addBtn_container span {
+		font-size: 1.3rem;
+	}
+
+	.btn {
+		width: 4.5rem;
+		height: 2.6rem;
+		font-size: 0.95rem;
+	}
+
+	.empty_transActionsList_container p,
+	.notMatchs_item,
+	.searchInput {
+		padding: 15px;
+	}
+}
+
+/*  min-width: 1280px */
+@media (min-width: 1280px) {
+	.transActionsList_container,
+	.empty_transActionsList_container {
+		width: 40vw;
+		padding: 0;
+	}
+
+	.title_addBtn_container span {
+		font-size: 1.3rem;
+	}
+
+	.btn {
+		width: 4.5rem;
+		height: 2.6rem;
+		font-size: 0.95rem;
+	}
+
+	.empty_transActionsList_container p,
+	.notMatchs_item {
+		padding: 15px;
+	}
+}

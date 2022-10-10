@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
-import TransActionsForm from './TransActionsForm';
+import TransActionsForm from '../TransActionsForm/TransActionsForm';
 import styles from './TransActionsList.module.css';
 
-import TransActionTemplate from './TransActionTemplate';
+import TransActionTemplate from '../TransActionTemplate/TransActionTemplate';
 
-const TransActionsList = ({ addTransActionHandler, setTransActions,transActions,deleteTransActionHandler }) => {
+const TransActionsList = ({
+	addTransActionHandler,
+	setTransActions,
+	transActions,
+	deleteTransActionHandler,
+}) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [searchValue, setSearchValue] = useState('');
 	const [filterTransActions, setFilterTransActions] = useState(transActions);
@@ -18,6 +23,7 @@ const TransActionsList = ({ addTransActionHandler, setTransActions,transActions,
 	// 	localStorage.setItem('TransActions', JSON.stringify(filterTransActions));
 	// }, [filterTransActions, transActions]);
 
+	// filtered search transActions function
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const filteredSearchTransActions = useCallback((searchItem) => {
 		if (!searchItem) {
@@ -26,7 +32,7 @@ const TransActionsList = ({ addTransActionHandler, setTransActions,transActions,
 		}
 
 		const filtered = transActions.filter((t) =>
-			t.title.toLowerCase().includes(searchItem.toLowerCase())
+			t.title.toLowerCase().includes(searchItem.toLowerCase().trim())
 		);
 
 		setFilterTransActions(filtered);
@@ -73,6 +79,7 @@ const TransActionsList = ({ addTransActionHandler, setTransActions,transActions,
 
 			{isOpen ? <TransActionsForm addTransActionHandler={addTransActionHandler} /> : ''}
 
+			{/* search input */}
 			<input
 				type='text'
 				placeholder='Search your transActions ...'
@@ -81,6 +88,7 @@ const TransActionsList = ({ addTransActionHandler, setTransActions,transActions,
 				className={styles.searchInput}
 			/>
 
+			{/* show filterTransActions list */}
 			<section>
 				{filterTransActions.length ? (
 					filterTransActions.map((transAction) => {
