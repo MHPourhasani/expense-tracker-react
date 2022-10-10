@@ -1,0 +1,92 @@
+.transAction_template {
+	width: 95%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #1e293b;
+	border-radius: 5px;
+	padding: 0 7px;
+	margin: 10px 0;
+}
+
+.income_transAction {
+	border-left: 4px solid #16a34a;
+}
+
+.expense_transAction {
+	border-left: 4px solid #dc2626;
+}
+
+.transAction_template_section1 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 0.5px solid #64748b;
+}
+
+.amount_btns_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	width: auto;
+}
+
+.transAction_title,
+.transAction_amount {
+	color: #fff;
+}
+
+.trash_btn {
+	background-color: transparent;
+	color: #dc2626;
+	border: none;
+	font-size: 1.1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.trash_btn:hover {
+	color: #b91c1c;
+}
+
+.transAction_desc {
+	color: #64748b;
+	font-size: 0.9rem;
+}
+
+/*  min-width: 640px and max-width: 767px */
+@media (min-width: 640px) and (max-width: 767px) {
+	.transAction_template {
+		padding: 0 10px;
+	}
+}
+
+/*  min-width: 768px and max-width: 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.transAction_template {
+		margin: 0.5rem 0;
+		padding: 0 10px;
+	}
+}
+
+/*  min-width: 1024px and max-width: 1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+	.transAction_template {
+		margin: 0.5rem 0;
+	}
+}
+
+/*  min-width: 1280px */
+@media (min-width: 1280px) {
+	.transAction_template {
+		margin: 7px 0;
+		padding: 0 10px;
+	}
+
+	.trash_btn {
+		font-size: 18px;
+	}
+}
