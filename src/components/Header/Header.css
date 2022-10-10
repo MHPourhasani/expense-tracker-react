@@ -23,10 +23,10 @@ header {
 }
 
 /*  ------- media query to responsive elements in Header component ------- */
-/*  (min-width:640px) and (max-width: 767px) */
+/* min-width: 640px and max-width: 767px */
 @media (min-width: 640px) and (max-width: 767px) {
 	header {
-		width: 65vw;
+		width: 75vw;
 	}
 
 	.image-container {
@@ -35,7 +35,7 @@ header {
 	}
 }
 
-/*  (min-width:768px) and (max-width: 1023px) */
+/* min-width: 768px and max-width: 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
 	header {
 		width: 88vw;
@@ -48,10 +48,10 @@ header {
 	}
 }
 
-/*  (min-width:1024px) and (max-width: 1279px) */
+/* min-width: 1024px and max-width: 1279px */
 @media (min-width: 1024px) and (max-width: 1279px) {
 	header {
-		width: 68vw;
+		width: 75vw;
 		margin: 0.8rem 0;
 	}
 
@@ -61,7 +61,7 @@ header {
 	}
 }
 
-/*  (min-width:1280px) */
+/* min-width: 1280px */
 @media (min-width: 1280px) {
 	header {
 		width: 58vw;
