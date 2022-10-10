@@ -7,11 +7,11 @@ const Header = () => {
 			<h2 className='header-title'>Expence Tracker</h2>
 
 			<a
-				href='https://github.com/MHPourhasani'
+				href='https://github.com/MHPourhasani/expense-tracker-react'
 				target='_blank'
 				rel='noreferrer'
 				className='image-container'>
-				<img src={myPhoto} alt='my photo' aria-hidden />
+				<img src={myPhoto} alt='mhp photo' aria-hidden />
 			</a>
 		</header>
 	);
