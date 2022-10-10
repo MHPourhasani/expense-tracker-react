@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
+
+// components
 import OverViewComponent from '../components/OverViewComponent/OverViewComponent';
-import TransActionsList from '../components/TransActions/TransActionsList';
+import TransActionsList from '../components/TransActions/TransActionsList/TransActionsList';
 import Layout from './../Layout/Layout';
+
+// css
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
@@ -33,19 +37,6 @@ const HomePage = () => {
 		setIncome(inc);
 	}, [transActions]);
 
-	// const filteredSearchTransActions = (searchItem) => {
-	// 	if (!searchItem) {
-	// 		setFilterTransActions(transActions);
-	// 		return;
-	// 	}
-
-	// 	const filtered = transActions.filter((t) =>
-	// 		t.title.toLowerCase().includes(searchItem.toLowerCase())
-	// 	);
-
-	// 	setFilterTransActions(filtered);
-	// };
-
 	const addTransActionHandler = (formValue) => {
 		const transActionData = { ...formValue, id: Math.floor(Math.random() * 1000) };
 		setTransActions([...transActions, transActionData]);
@@ -62,11 +53,8 @@ const HomePage = () => {
 				<OverViewComponent income={income} expense={expense} />
 				<TransActionsList
 					transActions={transActions}
-					// filterTransActions={filterTransActions}
-					setTransActions={setTransActions}
 					addTransActionHandler={addTransActionHandler}
 					deleteTransActionHandler={deleteTransActionHandler}
-					// filteredSearchTransActions={filteredSearchTransActions}
 				/>
 			</section>
 		</Layout>
