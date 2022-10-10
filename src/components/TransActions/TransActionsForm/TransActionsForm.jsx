@@ -19,6 +19,7 @@ const TransActionsForm = ({ addTransActionHandler }) => {
 			<h4 className={styles.transActionsForm_title}>Add TransActions</h4>
 
 			<form onSubmit={submitHandler} className={styles.form_container}>
+				{/* title, amount and description inputs */}
 				<section className={styles.information_container}>
 					<input
 						type='text'
@@ -44,9 +45,11 @@ const TransActionsForm = ({ addTransActionHandler }) => {
 					/>
 				</section>
 
+				{/* expense and income radio button */}
 				<section className={styles.radio_container}>
 					<div className={styles.radio_box}>
 						<input
+							id='expense'
 							type='radio'
 							value='expense'
 							name='type'
@@ -58,6 +61,7 @@ const TransActionsForm = ({ addTransActionHandler }) => {
 
 					<div className={styles.radio_box}>
 						<input
+							id='income'
 							type='radio'
 							value='income'
 							name='type'
