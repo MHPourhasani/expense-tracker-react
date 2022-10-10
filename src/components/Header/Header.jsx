@@ -4,7 +4,7 @@ import myPhoto from '../../assets/images/myPhoto.jpg';
 const Header = () => {
 	return (
 		<header>
-			<h2 className='header-title'>Expence Tracker</h2>
+			<h2 className='header-title'>Expense Tracker</h2>
 
 			<a
 				href='https://github.com/MHPourhasani/expense-tracker-react'
